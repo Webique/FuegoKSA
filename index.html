@@ -13,36 +13,58 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
+ <!-- Navbar -->
+ <header class="navbar">
     <div class="logo">
-        <span>Fuego</span>
+        <a href="index.html" class="logo-link">
+            <img src="assets/logo.png" alt="Fuego Logo" class="logo-image"> <!-- Logo -->
+            <span>Fuego</span>
+        </a>
     </div>
     <span class="menu-toggle">&#9776;</span> <!-- Toggler -->
     <nav class="menu">
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#courts">Courts</a>
-        <a href="#location">Location</a>
-        <a href="index1.html">Our Branches</a> <!-- New Link -->
+        <a href="#about">Menu</a>
+        <a href="index1.html">Our Branches</a>
+        <a href="#footer">Contact Us</a>
     </nav>
-  </header>
+</header>
+
+
+
+
 
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section hidden">
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="assets/backgroundvid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="content">
-        <h1 class="hero-title">Welcome to Fuego</h1>
-        <p>Experience the fire of innovation.</p>
-        <a href="menu.html" class="hero-button">Go to Menu</a> <!-- New Button -->
+        <h1 class="hero-title">Welcome to <span class="highlight">Fuego</span></h1>
+
+        <button class="hero-button" id="menuButton">Go to Menu</button>
     </div>
 </section>
+
+<!-- Language Selection Popup -->
+<div class="language-popup" id="languagePopup">
+    <div class="popup-content">
+        <h2>Select Language</h2>
+        <!-- Directly links to the PDF -->
+        <button class="language-button" onclick="window.open('assets/menueng.pdf', '_blank')">English</button>
+        <button class="language-button" onclick="window.open('assets/menuarabic.pdf', '_blank')">Arabic</button>
+        <button class="close-button" id="closePopup">Cancel</button>
+    </div>
+</div>
+
+
  
 
 <!-- Concept Section -->
-<section class="concept-section">
+<section class="concept-section hidden">
     <div class="concept-content">
       <h2>The Concept</h2>
-      <h3>Your friendly neighborhood steakhouse.</h3>
+      <h3>Your friendly Mexican cuisine.</h3>
       <p>
         A place for everyone to come in and enjoy a good meal. We're driven by our community and pride 
         ourselves on our relationship with our customers. We promise to deliver a great experience 
@@ -55,84 +77,61 @@
         Have a question in mind? We've got the answer ready. Everything from our no-reservation 
         policy to the allergens in our food can be found in our FAQs section.
       </p>
-      <a href="#faqs" class="concept-link">FAQs &rarr;</a>
+      <a href="FAQ.html" class="concept-link">FAQs &rarr;</a> <!-- Updated FAQs Link -->
     </div>
     <div class="concept-images">
       <img src="assets/pic2.jpg" alt="Restaurant Exterior 1">
-      <img src="assets/pic3.jpg" alt="Restaurant Exterior 2">
-    </div>
-  </section>
-
-  <!-- Section Divider -->
-<div class="section-divider"></div>
-
-<!-- Our Branches Section -->
-<section class="branches-section">
-    <h2>Our Branches</h2>
-    <div class="branches-container">
-        <!-- Riyadh Branch -->
-        <div class="branch-card">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.560682448579!2d46.67529591500389!3d24.713551084119558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f026f9038c1a1%3A0x6d3745a3bdedb2e!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1693305564565!5m2!1sen!2ssa" 
-                width="100%" 
-                height="200" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <div class="branch-details">
-                <h3>Riyadh, Saudi Arabia</h3>
-                <p>Phone: <a href="tel:+966555555555">+966 555 555 555</a></p>
-                <p>Opening Hours: 10:00 AM - 10:00 PM</p>
-            </div>
-        </div>
-
-        <!-- Madinah Branch -->
-        <div class="branch-card">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.157911108366!2d39.58218241500454!3d24.470998884239702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bdb8a04c9d2ef5%3A0x5097f322ef7e47ac!2sMadinah%2C%20Saudi%20Arabia!5e0!3m2!1sen!2ssa!4v1693305671673!5m2!1sen!2ssa" 
-                width="100%" 
-                height="200" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <div class="branch-details">
-                <h3>Madinah, Saudi Arabia</h3>
-                <p>Phone: <a href="tel:+966555555556">+966 555 555 556</a></p>
-                <p>Opening Hours: 12:00 PM - 12:00 AM</p>
-            </div>
-        </div>
+      <img src="assets/pic4.jpg" alt="Restaurant Exterior 2">
     </div>
 </section>
 
 
 
 
+
 <!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
+<footer class="footer" id="footer"> <!-- Added id="footer" -->
+    <div class="footer-container">
+        <!-- Contact Section -->
         <div class="footer-details">
             <h3>Contact Us</h3>
             <p>
-                <i class="fas fa-envelope"></i> 
+                <i class="fas fa-envelope"></i>
                 <a href="mailto:fuego_ksa@hotmail.com">fuego_ksa@hotmail.com</a>
             </p>
         </div>
+
+        <!-- Social Media Section -->
         <div class="footer-social">
             <h3>Follow Us</h3>
-            <a href="https://www.instagram.com/fuego_ksa" target="_blank" class="social-icon">
-                <i class="fab fa-instagram"></i> fuego_ksa
-            </a>
-            <a href="https://www.tiktok.com/@fuego_ksa0" target="_blank" class="social-icon">
-                <i class="fab fa-tiktok"></i> fuego_ksa0
-            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/fuego_ksa" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@fuego_ksa0" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://twitter.com/fuego_ksa" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Job Hiring Section -->
+        <div class="footer-jobs">
+            <h3>Join Our Team</h3>
+            <p>We're hiring passionate individuals to join our team. Apply now!</p>
+            <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdCA_ORmJLvdu3eqO0kIV1FOAaV_yxJLNkUXA9BK7vn5PPoBQ/viewform" 
+                target="_blank" 
+                class="job-link">Apply for a Job</a>
         </div>
     </div>
-    <p class="footer-copy">&copy; 2025 Fuego. All Rights Reserved.</p>
+    <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Fuego. All Rights Reserved.</p>
+    </div>
 </footer>
+
 
 
   <!-- Scripts -->
