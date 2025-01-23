@@ -2,10 +2,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.menu a').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-            });
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) { // Only smooth scroll for section IDs
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                    });
+                }
+            }
         });
     });
 
@@ -119,20 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-
-
-
-
 // Ensure only internal links are handled by smooth scrolling
 document.querySelectorAll('.menu a').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         if (href.startsWith('#')) { // Only smooth scroll for section IDs
             e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth',
-            });
+            const targetSection = document.querySelector(href);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                });
+            }
         }
     });
 });

@@ -13,7 +13,7 @@
 /* ===========================================================
    Navbar Styling
    =========================================================== */
-   .navbar {
+.navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -25,92 +25,120 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     z-index: 1000;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
+/* Navbar when scrolled */
+.navbar.scrolled {
+    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow on scroll */
+}
+
+/* Logo Styling */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between the logo and brand name */
-    font-size: 2rem; /* Larger font size for a bold statement */
-    font-weight: 700; /* Extra-bold for prominence */
-    color: #ffffff; /* Clean white for the logo text */
+    gap: 8px; /* Reduced space between the logo image and brand name */
+    font-size: 1.8rem; /* Slightly smaller font */
+    font-weight: 800; /* Extra-bold font for prominence */
+    color: #ffffff; /* Clean white for the text */
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Balanced letter spacing */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo span {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    font-weight: 800; /* Extra-bold for emphasis */
+    color: #ffffff; /* White text for contrast */
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover span {
+    color: #ffc107; /* Yellow on hover */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow */
+    transform: scale(1.05); /* Subtle hover effect */
 }
 
 .logo-image {
-    height: 50px; /* Adjust height for the logo */
-    width: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure logo fits nicely */
+    height: 40px; /* Slightly smaller logo image */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* Menu Styling (Desktop View) */
+.logo-image:hover {
+    transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+
+/* Menu Styling */
 .menu {
-    display: flex; /* Always visible on larger screens */
-    flex-direction: row; /* Horizontal layout for desktop */
-    gap: 30px; /* Increased gap for better spacing */
-    background-color: transparent; /* No background for larger screens */
-    position: static; /* Default position */
-    padding: 0; /* Remove extra padding */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    gap: 30px;
+    background-color: transparent;
+    padding: 0;
 }
 
 .menu a {
     text-decoration: none;
-    color: #d1d1d1; /* Light gray for links */
-    font-size: 1.2rem; /* Slightly larger font */
-    font-weight: 600; /* Semi-bold for emphasis */
-    padding: 10px 20px; /* Padding for better click area */
-    border-radius: 5px; /* Rounded corners for a softer look */
+    color: #ffffff; /* Theme yellow for links */
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu a:hover {
-    color: #ffffff; /* White text on hover */
-    background-color: #333; /* Subtle dark background on hover */
-    transform: scale(1.05); /* Slight scaling for interaction */
+    color: #ffc107; /* Lighter yellow on hover */
+    background-color: rgba(255, 193, 7, 0.1); /* Subtle background highlight */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Hamburger Icon */
+/* Mobile Menu Toggle */
 .menu-toggle {
-    display: none; /* Hidden by default on larger screens */
-    font-size: 1.8em; /* Larger icon for better visibility */
+    display: none; /* Hidden on larger screens */
+    font-size: 1.8rem;
     cursor: pointer;
     color: #ffffff;
     z-index: 1300;
 }
 
-/* Mobile Navbar Dropdown Styling */
+/* Mobile Navbar Styling */
 @media (max-width: 768px) {
     .menu {
         display: flex;
-        flex-direction: column; /* Vertical layout for mobile */
+        flex-direction: column;
         position: absolute;
-        top: 100%; /* Below the navbar */
+        top: 100%;
         left: 0;
-        width: 100%; /* Full-width dropdown */
-        background-color: #1a1a1a; /* Match navbar background */
+        width: 100%;
+        background-color: #1a1a1a;
         padding: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for dropdown */
-        transform: translateY(-50px); /* Start slightly above */
-        opacity: 0; /* Invisible initially */
-        visibility: hidden; /* Prevent interaction when hidden */
-        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease; /* Smooth slide and fade */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(-50px);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
     }
 
     .menu.active {
-        transform: translateY(0); /* Slide into place */
-        opacity: 1; /* Make visible */
-        visibility: visible; /* Allow interaction */
+        transform: translateY(0); /* Slide down into view */
+        opacity: 1;
+        visibility: visible;
     }
 
     .menu a {
-        font-size: 1.2rem; /* Larger font for mobile */
-        font-weight: 700; /* Extra-bold for prominence */
-        padding: 15px 20px; /* Adjust padding for touch screens */
-        text-align: center; /* Center align text */
-        transition: color 0.3s ease, transform 0.2s ease;
-    }
-
-    .menu a:hover {
-        transform: scale(1.08); /* Slight scaling for hover on mobile */
+        font-size: 1.3rem; /* Slightly larger font for mobile */
+        font-weight: 800; /* Extra-bold for mobile emphasis */
+        padding: 12px 20px;
+        text-align: center; /* Center-align text */
     }
 
     .menu-toggle {
@@ -118,15 +146,6 @@
     }
 }
 
-/* Smooth Transition for the Navbar */
-.navbar {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth background and shadow change */
-}
-
-.navbar.scrolled {
-    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent background when scrolled */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow on scroll */
-}
 
 
 
@@ -515,7 +534,7 @@
     overflow: hidden;
     flex: 1 1 calc(45% - 20px); /* Each card takes 45% of the row width */
     max-width: 500px; /* Limit the max width of each card */
-    text-align: left;
+    text-align: center; /* Center the card content */
     margin: 0 auto; /* Center individual cards */
 }
 
@@ -528,6 +547,10 @@
 
 .branch-details {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text inside the details section */
+    gap: 10px; /* Add spacing between the elements */
 }
 
 .branch-details h3 {
@@ -537,9 +560,10 @@
 }
 
 .branch-details p {
-    font-size: 1rem;
+    font-size: 1.1rem; /* Slightly larger for better readability */
     color: #555;
     margin: 5px 0;
+    text-align: center; /* Ensure all text is centered */
 }
 
 .branch-details a {
@@ -563,7 +587,6 @@
         flex: 1 1 100%; /* Full width on smaller screens */
     }
 }
-
 
 
 /* ===========================================================
@@ -644,7 +667,7 @@
 }
 
 .social-icon {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: #d1d1d1; /* Light gray for icons */
     transition: transform 0.3s, color 0.3s;
 }
@@ -782,45 +805,45 @@
    FAQ Section
    =========================================================== */
    .faq-section {
-    padding: 60px 20px;
+    padding: 100px 15px 40px; /* Added extra padding at the top to clear the navbar */
     background-color: #fff; /* Clean white background */
     color: #333; /* Dark text for readability */
-    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.05); /* Subtle inner shadow for depth */
+    box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.05); /* Subtle inner shadow for depth */
 }
 
 .faq-container {
-    max-width: 1000px;
+    max-width: 900px; /* Slightly reduced container width */
     margin: 0 auto;
     text-align: left; /* Align text to the left for readability */
 }
 
 .faq-section h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem; /* Slightly smaller title size */
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced margin below the title */
     color: #ff8e53; /* Theme orange for the title */
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+    letter-spacing: 0.5px; /* Reduced letter spacing */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Softer shadow for text */
 }
 
 .faq {
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 15px; /* Reduced margin between boxes */
+    padding: 15px; /* Slightly smaller padding */
     background-color: #f9f9f9; /* Slightly off-white background for FAQs */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 8px; /* Reduced corner radius */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .faq h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem; /* Slightly smaller question text size */
     font-weight: bold;
     margin: 0;
     color: #444; /* Subtle dark for prominence */
     position: relative;
-    padding-right: 30px; /* Space for the icon */
+    padding-right: 25px; /* Reduced space for the icon */
     cursor: pointer; /* Pointer cursor for questions */
     display: flex;
     align-items: center;
@@ -829,7 +852,7 @@
 
 .faq h3::after {
     content: '\25BC'; /* Downward arrow */
-    font-size: 1.2rem;
+    font-size: 1rem; /* Reduced arrow size */
     color: #888; /* Subtle arrow color */
     transition: transform 0.3s ease; /* Rotate the arrow */
 }
@@ -842,10 +865,10 @@
 .faq p {
     max-height: 0;
     overflow: hidden;
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1.1rem; /* Slightly smaller answer text size */
+    line-height: 1.6; /* Reduced line spacing */
     color: #555; /* Subtle gray for supporting text */
-    margin-top: 15px;
+    margin-top: 10px; /* Reduced top margin */
     padding: 0;
     border-top: 1px solid #ddd; /* Subtle divider line for answers */
     transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease; /* Smooth toggle effect */
@@ -853,8 +876,8 @@
 }
 
 .faq.active p {
-    max-height: 500px; /* Large enough to fit the text */
-    padding: 10px 0 0; /* Padding for the answer */
+    max-height: 400px; /* Reduced max height */
+    padding: 8px 0 0; /* Reduced padding for the answer */
     opacity: 1;
 }
 
@@ -864,34 +887,31 @@
 }
 
 .faq:hover {
-    transform: translateY(-5px); /* Slight lift effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    transform: translateY(-3px); /* Reduced lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .faq-section {
-        padding: 40px 15px; /* Reduce padding on smaller screens */
+        padding: 80px 10px 30px; /* Add extra top padding for mobile screens */
     }
 
     .faq-section h2 {
-        font-size: 2.2rem; /* Adjust title size */
+        font-size: 2rem; /* Smaller title size for mobile */
+        margin-bottom: 15px; /* Reduced margin below the title */
     }
 
     .faq h3 {
-        font-size: 1.4rem; /* Adjust question size */
+        font-size: 1.3rem; /* Smaller question size for mobile */
     }
 
     .faq p {
-        font-size: 1rem; /* Adjust paragraph size */
+        font-size: 1rem; /* Smaller paragraph size for mobile */
+        line-height: 1.5; /* Tighter line spacing for answers */
     }
 }
 
-@media (max-width: 768px) {
-    .faq-section {
-        padding-top: 90px; /* Add extra space only on mobile */
-    }
-}
 
 
 
