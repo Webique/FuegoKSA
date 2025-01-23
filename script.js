@@ -1,5 +1,5 @@
+// Smooth scrolling for menu links
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for menu links
     document.querySelectorAll('.menu a').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     // Add hidden class to all sections initially
-    const sections = document.querySelectorAll('section, .language-popup');
+    const sections = document.querySelectorAll('section');
     sections.forEach((section) => {
         section.classList.add('hidden');
         observer.observe(section);
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Handle the "Go to Menu" button and language popup
 document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('menuButton');
     const languagePopup = document.getElementById('languagePopup');
@@ -82,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Handle logo navigation
 document.addEventListener('DOMContentLoaded', () => {
     const logoLink = document.querySelector('.logo-link');
 
@@ -97,9 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-
-/* ------------- FAQ script ------------*/
+// FAQ script for toggling questions and answers
 document.addEventListener('DOMContentLoaded', () => {
     const faqs = document.querySelectorAll('.faq');
 
@@ -118,3 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+
+
+
+// Ensure only internal links are handled by smooth scrolling
+document.querySelectorAll('.menu a').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) { // Only smooth scroll for section IDs
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth',
+            });
+        }
+    });
+});

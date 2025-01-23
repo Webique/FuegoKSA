@@ -77,9 +77,7 @@
     z-index: 1300;
 }
 
-/* ===========================================================
-   Responsive Design for Mobile
-   =========================================================== */
+/* Mobile Navbar Dropdown Styling */
 @media (max-width: 768px) {
     .menu {
         display: flex;
@@ -91,14 +89,16 @@
         background-color: #1a1a1a; /* Match navbar background */
         padding: 10px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for dropdown */
-        transform: translateY(-100%); /* Hidden above view */
+        transform: translateY(-50px); /* Start slightly above */
         opacity: 0; /* Invisible initially */
-        transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth slide and fade */
+        visibility: hidden; /* Prevent interaction when hidden */
+        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease; /* Smooth slide and fade */
     }
 
     .menu.active {
-        transform: translateY(0); /* Slide into view */
+        transform: translateY(0); /* Slide into place */
         opacity: 1; /* Make visible */
+        visibility: visible; /* Allow interaction */
     }
 
     .menu a {
@@ -117,6 +117,17 @@
         display: block; /* Show hamburger menu on mobile */
     }
 }
+
+/* Smooth Transition for the Navbar */
+.navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth background and shadow change */
+}
+
+.navbar.scrolled {
+    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent background when scrolled */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow on scroll */
+}
+
 
 
 /* ===========================================================
@@ -912,3 +923,353 @@
     transform: scale(1.1); /* Enlarge the logo on hover */
 }
 
+/* ===========================================================
+   General Text Styling Enhancements
+   =========================================================== */
+   body {
+    font-family: 'Poppins', sans-serif; /* Modern font for the whole page */
+    color: #333; /* Default dark text color */
+    line-height: 1.8; /* Comfortable line spacing */
+}
+
+h1, h2, h3 {
+    font-weight: 700; /* Extra-bold for all headings */
+    text-transform: uppercase; /* Consistent capitalization for all headings */
+    letter-spacing: 1px; /* Slight spacing for better readability */
+}
+
+p, a {
+    font-weight: 500; /* Semi-bold for paragraphs and links */
+}
+
+/* ===========================================================
+   General Styling with a New Font
+   =========================================================== */
+   body {
+    font-family: 'Montserrat', sans-serif; /* Elegant, modern font */
+    color: #333; /* Default dark text color */
+    line-height: 1.8; /* Comfortable line spacing */
+}
+
+h1, h2, h3 {
+    font-weight: 600; /* Slightly lighter for a clean, modern feel */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Subtle spacing */
+}
+
+p, a {
+    font-weight: 500; /* Semi-bold for clear readability */
+}
+
+/* ===========================================================
+   Branches Section Styling
+   =========================================================== */
+   .hero-section {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* White text for contrast */
+    overflow: hidden;
+    background-color: #f7f7f7; /* Fallback color */
+    padding-top: 70px; /* Adjust padding to move content below the navbar */
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire section */
+    z-index: 0; /* Places the image below the content */
+}
+
+.hero-section .content {
+    position: relative;
+    z-index: 1; /* Ensures the text is above the image */
+    max-width: 700px; /* Reduced width for more focused text */
+    padding: 0 15px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4); /* Softer shadow for readability */
+    margin-top: 20px; /* Adjust this value for fine-tuning */
+}
+
+.hero-title {
+    font-size: 2.8rem; /* Reduced size for a cleaner look */
+    font-weight: 700; /* Boldest weight for main title */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.3rem; /* Slightly smaller for a balanced look */
+    line-height: 1.8;
+    font-weight: 500; /* Softer font weight for text */
+}
+
+/* Branches Section */
+.branches-section {
+    padding: 50px 20px; /* Reduced padding for better proportions */
+    background-color: #f7f7f7; /* Light gray background */
+    color: #333;
+    text-align: center;
+}
+
+.branches-container {
+    max-width: 1100px; /* Adjusted for a more compact layout */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 30px;
+    padding: 0 15px; /* Add padding for better spacing on mobile */
+}
+
+@media (min-width: 768px) {
+    .branches-container {
+        grid-template-columns: 1fr 1fr; /* Two columns for tablets and desktops */
+    }
+}
+
+.branch {
+    background: #ffffff;
+    border-radius: 12px; /* Slightly rounder corners for a modern look */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.branch:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.branch h3 {
+    background-color: #e69a2a; /* Theme color */
+    color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.branch-info {
+    padding: 15px;
+    background: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.branch-info .label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.branch-info .value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e69a2a;
+    text-align: right;
+}
+
+.branch-info .hours-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.branch iframe {
+    width: 100%;
+    height: 220px; /* Adjusted height for a better balance */
+    border: none;
+    display: block;
+    border-top: 1px solid #eee; /* Separator for iframe */
+}
+
+.branch a {
+    display: inline-block;
+    color: #e69a2a; /* Theme color */
+    text-decoration: none;
+    font-weight: 600; /* Slightly bolder for links */
+    margin-top: 10px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.branch a:hover {
+    color: #d48827; /* Slightly darker shade on hover */
+    transform: translateY(-2px);
+}
+
+/* Delivery Icons */
+.delivery-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px solid #eee; /* Separator */
+}
+
+.delivery-icon {
+    font-size: 1.6rem; /* Slightly reduced size */
+    color: #e69a2a;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 600; /* Semi-bold for better emphasis */
+}
+
+.delivery-icon:hover {
+    color: #d48827;
+    transform: scale(1.15); /* Slight enlargement on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.3rem; /* Adjusted for smaller screens */
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .branch h3 {
+        font-size: 1.8rem; /* Adjust title size for mobile */
+    }
+
+    .branch-info .label {
+        font-size: 1.1rem; /* Adjust label size */
+    }
+
+    .branch-info .value {
+        font-size: 1rem; /* Adjust value size */
+    }
+
+    .delivery-icon {
+        font-size: 1.4rem; /* Adjusted for smaller screens */
+    }
+}
+/* Branch Styling */
+.branch {
+    background: #ffffff;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.branch:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.branch h3 {
+    background-color: #e69a2a; /* Theme color */
+    color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.branch-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee; /* Separator */
+}
+
+.branch iframe {
+    width: 100%;
+    height: 220px; /* Adjust height */
+    border: none;
+    display: block;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Branch Info */
+.branch-info {
+    padding: 15px;
+    text-align: left;
+    background: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hours-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.phone {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.phone a {
+    color: #e69a2a;
+    text-decoration: none;
+}
+
+.phone a:hover {
+    color: #d48827;
+}
+
+/* Delivery Icons */
+.delivery-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.delivery-icon {
+    font-size: 1.4rem;
+    color: #e69a2a;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.delivery-icon:hover {
+    transform: scale(1.15);
+    color: #d48827;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .branch h3 {
+        font-size: 1.8rem;
+    }
+
+    .branch-image {
+        height: 150px;
+    }
+
+    .hours-container {
+        font-size: 0.9rem;
+    }
+
+    .phone {
+        font-size: 0.9rem;
+    }
+
+    .delivery-icon {
+        font-size: 1.2rem;
+    }
+}
