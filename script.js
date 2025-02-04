@@ -1,121 +1,101 @@
-// Smooth scrolling for menu links
+// --- DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.menu a').forEach((anchor) => {
+    // --- Smooth Scrolling for Internal Links ---
+    document.querySelectorAll('.menu a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href.startsWith('#')) { // Only smooth scroll for section IDs
+            if (href.startsWith('#')) {
                 e.preventDefault();
                 const targetSection = document.querySelector(href);
                 if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                    });
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
     });
 
-    // Navbar toggle for mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+// Hamburger Menu Functionality
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links a');
 
-    function toggleMenu() {
-        menu.classList.toggle('active');
-    }
+// Toggle Dropdown Menu
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
 
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
+// Smooth Scroll and Close Menu on Link Click
+navLinksItems.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
 
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-            menu.classList.remove('active');
+        const headerHeight = document.querySelector('.main-header').offsetHeight;
+        let offset = headerHeight;
+
+        if (window.innerWidth <= 768) {
+            offset += 20;
         }
+
+        const sectionPosition = targetSection.offsetTop - offset;
+        window.scrollTo({ top: sectionPosition, behavior: 'smooth' });
+
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
     });
+});
 
-    menu.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => menu.classList.remove('active'));
-    });
+// Close Menu When Clicking Outside
+document.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
 
-    // Scroll-triggered animations for sections
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active'); // Add active class
-                }
-            });
-        },
-        { threshold: 0.2 } // Trigger animation when 20% of the section is visible
-    );
 
-    // Add hidden class to all sections initially
+
+    // --- Scroll-triggered Animations ---
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active'); // Add active class
+            }
+        });
+    }, { threshold: 0.2 });
+
+    // Add hidden class and observe sections
     const sections = document.querySelectorAll('section');
-    sections.forEach((section) => {
+    sections.forEach(section => {
         section.classList.add('hidden');
         observer.observe(section);
     });
 
-    // Smooth appearance for hero title
+    // --- Hero Title Animation ---
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        setTimeout(() => {
-            heroTitle.classList.add('active');
-        }, 500);
+        setTimeout(() => heroTitle.classList.add('active'), 500);
     }
-});
 
-// Handle the "Go to Menu" button and language popup
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menuButton');
-    const languagePopup = document.getElementById('languagePopup');
-    const closePopup = document.getElementById('closePopup');
-
-    // Open the popup when the "Go to Menu" button is clicked
-    menuButton.addEventListener('click', () => {
-        languagePopup.classList.add('show'); // Add the "show" class for smooth appearance
-    });
-
-    // Close the popup when the "Cancel" button is clicked
-    closePopup.addEventListener('click', () => {
-        languagePopup.classList.remove('show'); // Remove the "show" class to hide the popup
-    });
-
-    // Close the popup when clicking outside of it
-    languagePopup.addEventListener('click', (e) => {
-        if (e.target === languagePopup) {
-            languagePopup.classList.remove('show'); // Close the popup if clicked outside
-        }
-    });
-});
-
-// Handle logo navigation
-document.addEventListener('DOMContentLoaded', () => {
+    // --- Handle Logo Navigation ---
     const logoLink = document.querySelector('.logo-link');
-
-    // Add click event listener for the logo link
     logoLink.addEventListener('click', (event) => {
-        // Prevent default anchor behavior if needed
         if (window.location.pathname.includes('index.html')) {
             event.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on the homepage
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            window.location.href = 'index.html'; // Redirect to the homepage
+            window.location.href = 'index.html';
         }
     });
-});
 
-// FAQ script for toggling questions and answers
-document.addEventListener('DOMContentLoaded', () => {
+    // --- FAQ Toggle ---
     const faqs = document.querySelectorAll('.faq');
-
     faqs.forEach(faq => {
         faq.addEventListener('click', () => {
-            // Toggle active class on the clicked FAQ
             faq.classList.toggle('active');
-
-            // Collapse all other FAQs
             faqs.forEach(otherFaq => {
                 if (otherFaq !== faq) {
                     otherFaq.classList.remove('active');
@@ -124,19 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+        // JavaScript to handle popup visibility
+        const languagePopup = document.getElementById('languagePopup');
+        const openPopupButton = document.getElementById('openLanguagePopup');
+        const closePopupButton = document.getElementById('closePopup');
 
-// Ensure only internal links are handled by smooth scrolling
-document.querySelectorAll('.menu a').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) { // Only smooth scroll for section IDs
-            e.preventDefault();
-            const targetSection = document.querySelector(href);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                });
+        openPopupButton.addEventListener('click', () => {
+            languagePopup.style.display = 'flex';
+        });
+
+        closePopupButton.addEventListener('click', () => {
+            languagePopup.style.display = 'none';
+        });
+
+        // Close popup when clicking outside the content area
+        window.addEventListener('click', (e) => {
+            if (e.target === languagePopup) {
+                languagePopup.style.display = 'none';
             }
-        }
-    });
-});
+        });

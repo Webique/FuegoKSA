@@ -1,148 +1,332 @@
 /* ===========================================================
    General Reset and Base Styles
-   =========================================================== */
-   body, html {
+=========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif; /* Modern font for professionalism */
     box-sizing: border-box;
-    background-color: #f7f7f7; /* Subtle light gray background */
-    color: #333; /* Dark gray text for readability */
 }
 
-/* ===========================================================
-   Navbar Styling
-   =========================================================== */
-.navbar {
+/* Theme Colors */
+:root {
+    --background-color: #1a1a1a;  /* Dark background */
+    --primary-color: #ffffff;      /* White text */
+    --hover-color: #ffc107;        /* Bright yellow hover color */
+}
+
+/* Global Base Styles */
+body, html {
+    font-family: 'Baloo Bhaina 2', cursive;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Universal Element Styling */
+h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
+    font-family: 'Baloo Bhaina 2', cursive;
+    color: #ffffff;
+}
+/* Navbar Styling */
+.main-header {
+    font-family: 'Baloo Bhaina 2', cursive;
+    background-color: var(--background-color);
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #1a1a1a; /* Professional dark background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    z-index: 1000;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    padding: 1rem 2rem;
+    max-width: 1450px;
+    margin: 0 auto;
 }
 
-/* Navbar when scrolled */
-.navbar.scrolled {
-    background-color: rgba(26, 26, 26, 0.9); /* Slightly transparent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow on scroll */
-}
-
-/* Logo Styling */
-.logo {
+/* Logo Section */
+.logo-section {
     display: flex;
     align-items: center;
-    gap: 8px; /* Reduced space between the logo image and brand name */
-    font-size: 1.8rem; /* Slightly smaller font */
-    font-weight: 800; /* Extra-bold font for prominence */
-    color: #ffffff; /* Clean white for the text */
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Balanced letter spacing */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
-    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.logo span {
-    font-family: 'Poppins', sans-serif; /* Modern, clean font */
-    font-weight: 800; /* Extra-bold for emphasis */
-    color: #ffffff; /* White text for contrast */
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.logo:hover span {
-    color: #ffc107; /* Yellow on hover */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow */
-    transform: scale(1.05); /* Subtle hover effect */
-}
-
-.logo-image {
-    height: 40px; /* Slightly smaller logo image */
+.logo {
+    height: 50px;
     width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    margin-right: 10px;
 }
 
-.logo-image:hover {
-    transform: scale(1.1); /* Slight enlargement on hover */
-}
-
-
-/* Menu Styling */
-.menu {
-    display: flex;
-    flex-direction: row; /* Horizontal layout */
-    gap: 30px;
-    background-color: transparent;
-    padding: 0;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #ffffff; /* Theme yellow for links */
-    font-size: 1.2rem;
+.cafe-name {
+    font-size: 2rem;
     font-weight: 700;
-    padding: 10px 20px;
-    border-radius: 6px;
+    color: var(--primary-color);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }
 
-.menu a:hover {
-    color: #ffc107; /* Lighter yellow on hover */
-    background-color: rgba(255, 193, 7, 0.1); /* Subtle background highlight */
-    transform: scale(1.05); /* Slight zoom effect */
+/* Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none; /* Hidden on larger screens */
-    font-size: 1.8rem;
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    font-family: 'Baloo Bhaina 2', cursive;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
     cursor: pointer;
-    color: #ffffff;
-    z-index: 1300;
+    margin-right: 20px;
 }
 
-/* Mobile Navbar Styling */
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .menu {
+    .hamburger {
         display: flex;
-        flex-direction: column;
         position: absolute;
-        top: 100%;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Center vertically */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
         left: 0;
+        background-color: var(--background-color);
+        height: 100vh;
         width: 100%;
-        background-color: #1a1a1a;
-        padding: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transform: translateY(-50px);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 0;
+        margin: 0;
+        transform: translateY(-100%);
         opacity: 0;
-        visibility: hidden;
-        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 999;
+        transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
     }
 
-    .menu.active {
-        transform: translateY(0); /* Slide down into view */
+    .nav-links.active {
+        transform: translateY(0);
         opacity: 1;
-        visibility: visible;
     }
 
-    .menu a {
-        font-size: 1.3rem; /* Slightly larger font for mobile */
-        font-weight: 800; /* Extra-bold for mobile emphasis */
-        padding: 12px 20px;
-        text-align: center; /* Center-align text */
+    .nav-links li {
+        list-style: none;
+        width: 100%;
     }
 
-    .menu-toggle {
-        display: block; /* Show hamburger menu on mobile */
+    .nav-links a {
+        font-size: 1.5rem;
+        display: inline-block;
+        color: var(--primary-color);
+        text-align: center;
+    }
+}
+
+
+
+
+
+/* ===========================================================
+   Menu Section Styles
+=========================================================== */
+.menu-section {
+    position: relative;
+    padding: 5rem 2rem;
+    text-align: center;
+    overflow: hidden; /* For animations */
+    color: var(--primary-color);
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/bck.png') center center / cover no-repeat;
+    filter: blur(8px);
+    opacity: 0.6;
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+.menu-section .container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1; /* Bring the content above the background */
+}
+
+/* Section Title */
+.menu-section .section-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Section Description */
+.menu-section .section-description {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2;
+    color: var(--secondary-font-color);
+    margin: 1.5rem 0 2.5rem 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Language Buttons */
+.menu-section .menu-language-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu-section .menu-button {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.menu-section .menu-button:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .menu-section .section-title {
+        font-size: 3rem;
+    }
+
+    .menu-section .menu-button {
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-section {
+        padding: 3rem 1rem;
+    }
+
+    .menu-section .section-title {
+        font-size: 2.5rem;
+    }
+
+    .menu-section .menu-button {
+        font-size: 1.2rem;
+        padding: 0.9rem 1.8rem;
+    }
+
+    .menu-section .menu-language-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-section {
+        padding: 2rem 1rem;
+    }
+
+    .menu-section .section-title {
+        font-size: 2rem;
+    }
+
+    .menu-section .section-description {
+        font-size: 1.2rem;
+    }
+
+    .menu-section .menu-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
