@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    
 // Hamburger Menu Functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -123,3 +124,45 @@ document.addEventListener('click', () => {
                 languagePopup.style.display = 'none';
             }
         });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+        
+                const target = document.querySelector(this.getAttribute('href'));
+        
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+        
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+        
+                if (target) {
+                    // Get the height of the fixed header
+                    const headerHeight = document.querySelector('.main-header').offsetHeight;
+        
+                    // Smoothly scroll to the target section
+                    window.scrollTo({
+                        top: target.offsetTop - headerHeight, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        window.addEventListener('load', () => {
+            // Auto-open the English menu PDF
+            const englishMenuLink = document.querySelector('#auto-open');
+            if (englishMenuLink) {
+                window.open(englishMenuLink.href, '_blank');
+            }
+        });
+                        

@@ -1,166 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuego</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuego</title>
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fuego Restaurant</title>
-    
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="styles.css">
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600;700;800&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Navbar -->
-        <header class="main-header">
-            <div class="container">
-                <div class="logo-section">
-                    <a href="index.html" class="logo-link">
-                        <img src="assets/logo.png" alt="Fuego Logo" class="logo">
-                        <span class="cafe-name">Fuego</span>
-                    </a>
-                </div>
-                <span class="hamburger menu-toggle">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </span>
-                <nav>
-                    <ul class="nav-links menu">
-                        <li><a href="branches.html" class="nav-link">Our Branches</a></li>
-                        <li><a href="faq.html" class="nav-link">FAQs</a></li>
-                        <li><a href="#footer" class="nav-link">Contact Us</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    
-    
+
+<!-- Navbar -->
+<header class="main-header">
+    <div class="container">
+        <div class="logo-section">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logo.png" alt="Fuego Logo" class="logo">
+                <span class="cafe-name">Fuego</span>
+            </a>
+        </div>
+        <span class="hamburger menu-toggle">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </span>
+        <nav>
+            <ul class="nav-links menu">
+                <li><a href="#branches-section" class="nav-link">Our Branches</a></li>
+                <li><a href="#faq-section" class="nav-link">FAQs</a></li>
+                <li><a href="#footer" class="nav-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 
+<style>
+    /* ===========================================================
+       Hero Section with Video Background
+    ============================================================ */
+    .hero-section {
+        position: relative;
+        width: 100%;
+        height: 120vh; /* Tall section */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    /* Background video styles */
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the section */
+        object-position: center; /* Centers the video */
+        z-index: 0;
+    }
+
+    /* Hero content */
+    .content {
+        position: relative;
+        z-index: 1; /* Place content above the video */
+        padding: 20px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1.5rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .hero-section {
+            height: 100vh; /* Adjust height for smaller screens */
+        }
+
+        .hero-title {
+            font-size: 3rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            height: 90vh; /* Adjust height for mobile */
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
 
 <!-- Hero Section -->
-<section class="hero-section hidden">
+<section class="hero-section">
     <video class="background-video" autoplay muted loop playsinline>
         <source src="assets/backgroundvid.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+
+    <!-- Hero Content -->
     <div class="content">
+        <h1 class="hero-title">Welcome to Fuego</h1>
+        <p class="hero-description">Experience authentic Mexican flavors.</p>
+    </div>
+</section>
+    <div class="section-divider-box"></div>
 
-
-        <button class="hero-button" id="menuButton">Go to Menu</button>
+<!-- Menu Section -->
+<section class="menu-section" id="menu">
+    <div class="container">
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-description">
+            Explore our delightful selection of dishes. Choose your preferred language to view the menu.
+        </p>
+        <div class="menu-language-buttons">
+            <a href="menuenglish.html" class="menu-button">English Menu</a>
+            <a href="menuarabic.html" class="menu-button">Arabic Menu</a>
+        </div>
     </div>
 </section>
 
 
-    <!-- Menu Section -->
-    <section class="menu-section" id="menu">
-        <div class="container">
-            <!-- Section Title -->
-            <h2 class="section-title">Our Menu</h2>
 
-            <!-- Section Description -->
-            <p class="section-description">
-                Explore our delightful selection of dishes. Choose your preferred language to view the menu.
+    <div class="section-divider-box"></div>
+    <!-- Concept Section -->
+    <section class="concept-section">
+        <div class="concept-content">
+            <h2>The Concept</h2>
+            <h3>Your friendly Mexican cuisine.</h3>
+            <p>
+                Fuego offers a unique dining experience blending Mexican cuisine with a Saudi touch, focusing on quality, innovation, and authentic flavors. Founded in 2016 as a food truck, we became a registered brand in 2021, combining Mexican style with the passion of a Saudi chef. By 2024, we expanded, opening our first branch in Riyadh, inspired by Mexico's vibrant streets.
+
+                "Fuego," meaning "Flames" in Spanish, reflects our fiery cooking, while our wolf logo symbolizes togetherness and shared meals. Explore our branches to experience the authentic flavors of Fuego!
             </p>
-
-            <!-- Language Selector Buttons -->
-            <div class="menu-language-buttons">
-                <a href="menuenglish.html" class="menu-button">English Menu</a>
-                <a href="menuarabic.html" class="menu-button">Arabic Menu</a>
-            </div>
+            <a href="#branches-section" class="concept-link">Our Branches &rarr;</a> <!-- Updated link -->
+            <h3>Quick answers to common questions.</h3>
+            <p>
+                Have a question in mind? We've got the answer ready. Everything from our no-reservation 
+                policy to the allergens in our food can be found in our FAQs section.
+            </p>
+            <a href="#faq-section" class="concept-link">FAQs &rarr;</a> <!-- Updated link -->
+        </div>
+        <div class="concept-images">
+            <img src="assets/pic2.jpg" alt="Restaurant Exterior 1">
+            <img src="assets/pic4.jpg" alt="Restaurant Exterior 2">
         </div>
     </section>
 
- 
+    <div class="section-divider-box"></div>
 
-<!-- Concept Section -->
-<section class="concept-section hidden">
-    <div class="concept-content">
-      <h2>The Concept</h2>
-      <h3>Your friendly Mexican cuisine.</h3>
-      <p>
-        Fuego offers a unique dining experience blending Mexican cuisine with a Saudi touch, focusing on quality, innovation, and authentic flavors. Founded in 2016 as a food truck, we became a registered brand in 2021, combining Mexican style with the passion of a Saudi chef. By 2024, we expanded, opening our first branch in Riyadh, inspired by Mexico's vibrant streets.
+    
+    <!-- Branches Section -->
+    <section class="branches-section" id="branches-section">
+        <h2>Our Branches</h2>
+        <div class="branches-container">
 
-        "Fuego," meaning "Flames" in Spanish, reflects our fiery cooking, while our wolf logo symbolizes togetherness and shared meals. Explore our branches to experience the authentic flavors of Fuego!
-      </p>
-      <a href="branches.html" class="concept-link">Our Branches &rarr;</a> <!-- Updated FAQs Link -->
-  
-      <h3>Quick answers to common questions.</h3>
-      <p>
-        Have a question in mind? We've got the answer ready. Everything from our no-reservation 
-        policy to the allergens in our food can be found in our FAQs section.
-      </p>
-      <a href="FAQ.html" class="concept-link">FAQs &rarr;</a> <!-- Updated FAQs Link -->
-    </div>
-    <div class="concept-images">
-      <img src="assets/pic2.jpg" alt="Restaurant Exterior 1">
-      <img src="assets/pic4.jpg" alt="Restaurant Exterior 2">
-    </div>
-</section>
+            <!-- Riyadh Branch -->
+            <div class="branch-card">
+                <h3>Riyadh Branch</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.8335625!2d46.7345085!3d24.8335625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efd00138fe837%3A0xfd48142edb6bf699!2sFuego+%D9%81%D9%88%D9%8A%D9%82%D9%88%E2%80%AD!5e0!3m2!1sen!2ssa!4v1693305564565!5m2!1sen!2ssa"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="branch-details">
+                    <div class="hours-container">
+                        <span class="label">Saturday-Thursday:</span>
+                        <span class="value">11:00 AM - 2:00 AM</span>
+                    </div>
+                    <div class="hours-container">
+                        <span class="label">Friday:</span>
+                        <span class="value">1:00 PM - 2:00 AM</span>
+                    </div>
+                    <p class="phone">Phone: <a href="tel:+966542001191"> +966 54 200 1191</a></p>
+                </div>
+                <div class="delivery-icons">
+                    <span class="delivery-icon">
+                        <img src="assets/logo1.jpg" alt="Icon 1">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo2.jpg" alt="Icon 2">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo3.jpg" alt="Icon 3">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo4.jpg" alt="Icon 4">
+                    </span>
+                </div>
+                
+            </div>
 
+            <!-- Madinah Branch -->
+            <div class="branch-card">
+                <h3>Madinah Branch</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.4189267!2d39.6205267!3d24.4189267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bdbf08919ae823%3A0xff914c4b6ad03cb5!2sFUEGO+%D9%81%D9%88%D9%8A%D9%82%D9%88%E2%80%AD!5e0!3m2!1sen!2ssa!4v1693305671673!5m2!1sen!2ssa"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="branch-details">
+                    <div class="hours-container">
+                        <span class="label">Saturday-Thursday:</span>
+                        <span class="value">12:00 PM - 1:00 AM</span>
+                    </div>
+                    <div class="hours-container">
+                        <span class="label">Friday:</span>
+                        <span class="value">1:00 PM - 1:00 AM</span>
+                    </div>
+                    <p class="phone">Phone: <a href="tel:+966551192202"> +966 55 119 2202</a></p>
+                </div>
+                <div class="delivery-icons">
+                    <span class="delivery-icon">
+                        <img src="assets/logo1.jpg" alt="Icon 1">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo2.jpg" alt="Icon 2">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo3.jpg" alt="Icon 3">
+                    </span>
+                    <span class="delivery-icon">
+                        <img src="assets/logo4.jpg" alt="Icon 4">
+                    </span>
+                </div>
+            </div>
 
-
-
-
-<!-- Footer -->
-<footer class="footer" id="footer"> <!-- Added id="footer" -->
-    <div class="footer-container">
-        <!-- Contact Section -->
-        <div class="footer-details">
-            <h3>Contact Us</h3>
-            <p>
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:fuego_ksa@hotmail.com">fuego_ksa@hotmail.com</a>
-            </p>
         </div>
+    </section>
 
-        <!-- Social Media Section -->
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-                <a href="https://www.instagram.com/fuego_ksa" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@fuego_ksa0" target="_blank" class="social-icon">
-                    <i class="fab fa-tiktok"></i>
-                </a>
 
+    <div class="section-divider-box"></div>
+
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq-section">
+            <div class="faq-container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq">
+                    <h3>What is your reservation policy?</h3>
+                    <p class="faq-answer">We do not accept reservations. Walk-ins are welcome!</p>
+                </div>
+                <div class="faq">
+                    <h3>Do you have vegetarian or vegan options?</h3>
+                    <p class="faq-answer">Yes, we offer a variety of vegetarian and vegan dishes. Check our menu for more details.</p>
+                </div>
+                <div class="faq">
+                    <h3>Are your dishes allergen-friendly?</h3>
+                    <p class="faq-answer">We strive to accommodate dietary restrictions. Please inform our staff of any allergens or dietary requirements.</p>
+                </div>
+                <div class="faq">
+                    <h3>What are your operating hours?</h3>
+                    <p class="faq-answer">We are open from 10:00 AM to 10:00 PM daily.</p>
+                </div>
+            </div>
+        </section>
+
+            <!-- Section Divider -->
+<!-- Section Divider -->
+<div class="section-divider-box"></div>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <!-- Contact Section -->
+            <div class="footer-details">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:fuego_ksa@hotmail.com">fuego_ksa@hotmail.com</a>
+                </p>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/fuego_ksa" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@fuego_ksa0" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Job Hiring Section -->
+            <div class="footer-jobs">
+                <h3>Join Our Team</h3>
+                <p>We're hiring passionate individuals to join our team. Apply now!</p>
+                <a 
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdCA_ORmJLvdu3eqO0kIV1FOAaV_yxJLNkUXA9BK7vn5PPoBQ/viewform" 
+                    target="_blank" 
+                    class="job-link">Apply for a Job</a>
             </div>
         </div>
-
-        <!-- Job Hiring Section -->
-        <div class="footer-jobs">
-            <h3>Join Our Team</h3>
-            <p>We're hiring passionate individuals to join our team. Apply now!</p>
-            <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdCA_ORmJLvdu3eqO0kIV1FOAaV_yxJLNkUXA9BK7vn5PPoBQ/viewform" 
-                target="_blank" 
-                class="job-link">Apply for a Job</a>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2025 Fuego. All Rights Reserved.</p>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p class="footer-copy">&copy; 2025 Fuego. All Rights Reserved.</p>
-    </div>
-</footer>
+    </footer>
 
 
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>

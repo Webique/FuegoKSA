@@ -18,42 +18,21 @@
       height: 100vh; /* Full height of the viewport */
     }
 
-    .open-pdf {
+    .loading-message {
       font-size: 1.5rem;
       font-weight: bold;
-      color: white;
-      background-color: #ff6b6b;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .open-pdf:hover {
-      background-color: #ff8e53;
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const pdfLink = 'assets/menuarabic.pdf';
 
-      if (isMobile) {
-        window.location.href = pdfLink; // Redirect to the PDF directly on mobile
-      } else {
-        document.querySelector('.open-pdf').addEventListener('click', () => {
-          window.open(pdfLink, '_blank'); // Open the PDF in a new tab
-        });
-      }
+      // Automatically redirect to the PDF link on page load
+      window.location.href = pdfLink;
     });
   </script>
 </head>
 <body>
-  <button class="open-pdf">Open Menu (Arabic)</button>
+  <div class="loading-message">Loading Menu (Arabic)...</div>
 </body>
 </html>
