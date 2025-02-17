@@ -1,3 +1,32 @@
+
+/* Ensure the status bar is dark grey */
+meta[name="theme-color"] {
+    content: #1a1a1a; /* Dark grey color */
+}
+
+/* Force the status bar background */
+body::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: env(safe-area-inset-top, 30px); /* Adjust for different devices */
+    background-color: #1a1a1a; /* Dark grey */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Ensure it's on top */
+}
+
+/* Push the navbar down so it's not covered */
+.main-header {
+    margin-top: env(safe-area-inset-top, 30px);
+}
+
+/* Keep the rest of the page white */
+body {
+    background-color: #ffffff; /* White background */
+    color: #1a1a1a; /* Dark grey text */
+}
 /* ===========================================================
    General Reset and Base Styles
 =========================================================== */
