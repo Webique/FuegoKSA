@@ -2,6 +2,29 @@
    General Reset and Base Styles
 =========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@700&display=swap');
+/* Set the status bar area (above navbar) to greyish color */
+body::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: env(safe-area-inset-top, 30px); /* Adjust based on phone status bar height */
+    background-color: #1a1a1a; /* Dark grey color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Keep it above everything */
+}
+
+/* Ensure the main content starts below the navbar */
+.main-header {
+    margin-top: env(safe-area-inset-top, 30px); /* Push the navbar down */
+}
+
+/* Keep the rest of the page background white */
+body {
+    background-color: #ffffff; /* White background */
+    color: #1a1a1a; /* Dark grey text */
+}
 
 * {
     margin: 0;
