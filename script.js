@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.innerHTML = `
         <div class="lightbox-content">
             <span class="close-lightbox">&times;</span>
-            <img class="lightbox-img" src="" alt="Expanded View">
+            <img class="lightbox-img" src="" alt="">
         </div>
     `;
     document.body.appendChild(lightbox);
