@@ -1,5 +1,6 @@
 // --- DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
+
     // --- Smooth Scrolling for Internal Links ---
     document.querySelectorAll('.menu a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hamburger Menu Functionality
+    // --- Hamburger Menu Functionality ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -43,14 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionPosition = targetSection.offsetTop - offset;
             window.scrollTo({ top: sectionPosition, behavior: 'smooth' });
 
+            // Close the menu after clicking
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         });
     });
 
     // Close Menu When Clicking Outside
-    document.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         }
@@ -141,24 +143,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryToggleButton = document.querySelector('.gallery-toggle-button');
     const galleryGrid = document.querySelector('.gallery-grid');
 
-    // Toggle Gallery Visibility
-    galleryToggleButton.addEventListener('click', () => {
-        galleryGrid.classList.toggle('active');
-        galleryToggleButton.textContent = galleryGrid.classList.contains('active') ? "Hide Gallery" : "View Gallery";
-    });
+    if (galleryToggleButton && galleryGrid) {
+        galleryToggleButton.addEventListener('click', () => {
+            galleryGrid.classList.toggle('active');
+            galleryToggleButton.textContent = galleryGrid.classList.contains('active') ? "Hide Gallery" : "View Gallery";
+        });
+    }
+
+    // --- View Highlights Button Toggle ---
+    const highlightsButton = document.querySelector('.view-highlights-button');
+    const highlightsGallery = document.querySelector('.contributions-gallery .gallery-grid');
+
+    if (highlightsButton && highlightsGallery) {
+        highlightsButton.addEventListener('click', () => {
+            highlightsGallery.classList.toggle('active');
+            highlightsButton.textContent = highlightsGallery.classList.contains('active') ? 'Hide Highlights' : 'View Highlights';
+        });
+    }
 
     // --- Language Popup ---
     const languagePopup = document.getElementById('languagePopup');
     const openPopupButton = document.getElementById('openLanguagePopup');
     const closePopupButton = document.getElementById('closePopup');
 
-    openPopupButton.addEventListener('click', () => {
-        languagePopup.style.display = 'flex';
-    });
+    if (openPopupButton && languagePopup) {
+        openPopupButton.addEventListener('click', () => {
+            languagePopup.style.display = 'flex';
+        });
+    }
 
-    closePopupButton.addEventListener('click', () => {
-        languagePopup.style.display = 'none';
-    });
+    if (closePopupButton && languagePopup) {
+        closePopupButton.addEventListener('click', () => {
+            languagePopup.style.display = 'none';
+        });
+    }
 
     // Close popup when clicking outside the content area
     window.addEventListener('click', (e) => {
@@ -190,19 +208,4 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(englishMenuLink.href, '_blank');
         }
     });
-});
-
-// View Highlights Button Toggle
-document.addEventListener('DOMContentLoaded', () => {
-    const highlightsButton = document.querySelector('.view-highlights-button');
-    const galleryGrid = document.querySelector('.contributions-gallery .gallery-grid');
-
-    if (highlightsButton && galleryGrid) {
-        highlightsButton.addEventListener('click', () => {
-            galleryGrid.classList.toggle('active');
-            highlightsButton.textContent = galleryGrid.classList.contains('active') 
-                ? 'Hide Highlights' 
-                : 'View Highlights';
-        });
-    }
 });
