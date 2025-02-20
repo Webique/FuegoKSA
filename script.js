@@ -191,3 +191,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// View Highlights Button Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const highlightsButton = document.querySelector('.view-highlights-button');
+    const galleryGrid = document.querySelector('.contributions-gallery .gallery-grid');
+
+    if (highlightsButton && galleryGrid) {
+        highlightsButton.addEventListener('click', () => {
+            galleryGrid.classList.toggle('active');
+            highlightsButton.textContent = galleryGrid.classList.contains('active') 
+                ? 'Hide Highlights' 
+                : 'View Highlights';
+        });
+    }
+});
