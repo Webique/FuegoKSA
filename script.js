@@ -104,40 +104,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Lightbox Feature for Gallery ---
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.innerHTML = `
-        <div class="lightbox-content">
-            <span class="close-lightbox">&times;</span>
-            <img class="lightbox-img" src="" alt="">
-        </div>
-    `;
-    document.body.appendChild(lightbox);
+// --- Lightbox Feature for Gallery ---
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = `
+    <div class="lightbox-content">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
+`;
+document.body.appendChild(lightbox);
 
-    const lightboxImg = lightbox.querySelector('.lightbox-img');
-    const closeLightbox = lightbox.querySelector('.close-lightbox');
+const lightboxImg = lightbox.querySelector('.lightbox-img');
+const closeLightbox = lightbox.querySelector('.close-lightbox');
 
-    // Open Lightbox
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            lightbox.classList.add('show');
-            lightboxImg.src = item.src;
-        });
+// Open Lightbox
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        lightbox.classList.add('show');
+        lightboxImg.src = item.src;
     });
+});
 
-    // Close Lightbox
-    closeLightbox.addEventListener('click', () => {
+// Close Lightbox
+closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+    lightboxImg.src = ''; // Clear the image source when closed
+});
+
+// Close Lightbox When Clicking Outside Image
+lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) {
         lightbox.classList.remove('show');
-    });
+        lightboxImg.src = ''; // Clear the image source when closed
+    }
+});
 
-    // Close Lightbox When Clicking Outside Image
-    lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg) {
-            lightbox.classList.remove('show');
-        }
-    });
 
     // --- Gallery Toggle ---
     const galleryToggleButton = document.querySelector('.gallery-toggle-button');
