@@ -1478,7 +1478,7 @@ p, a {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.6rem; /* Adjusted for smaller screens */
+        font-size: 2.3rem; /* Adjusted for smaller screens */
     }
 
     .hero-section p {
