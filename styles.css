@@ -394,14 +394,13 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
     }
 }
 
-
 /* ===========================================================
-   Hero Section with Video Background
+   Hero Section with Video Background - Fully Responsive
 =========================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 180vh; /* Taller Hero Section */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -409,57 +408,103 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
     color: #ffffff;
 }
 
-/* Background video styles */
+/* Background Video */
 .background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video covers the section */
-    object-position: center; /* Centers the video */
+    object-fit: cover;
+    object-position: center;
     z-index: 0;
 }
 
-/* Hero content */
+/* Hero Content */
 .content {
     position: relative;
-    z-index: 1; /* Place content above the video */
+    z-index: 1;
     text-align: center;
     padding: 20px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    max-width: 90%;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
 }
 
+/* Hero Title */
 .hero-title {
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    white-space: nowrap;
 }
 
+/* Hero Description */
 .hero-description {
     font-size: 1.5rem;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+/* Hero Subtext - Power & Fire */
+.hero-subtext {
+    font-size: 2.2rem; /* Slightly larger */
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 4px;
+    padding: 8px 20px;
+    display: inline-block;
+
+    /* FIRE EFFECT */
+    background: linear-gradient(90deg, #ff6b6b, #ff8e53, #ffc107, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 4px 20px rgba(255, 87, 34, 0.8), 
+                 2px 2px 12px rgba(0, 0, 0, 0.6);
+
+    /* BORDER GLOW EFFECT */
+    border: 3px solid rgba(255, 87, 34, 0.8);
+    border-radius: 12px;
+    padding: 8px 25px;
+    animation: flicker 1.5s infinite alternate;
+
+    /* Moves it lower */
+    margin-top: 30px; 
+}
+
+/* Flickering Glow Animation */
+@keyframes flicker {
+    0% {
+        text-shadow: 4px 4px 20px rgba(255, 87, 34, 1), 
+                     2px 2px 12px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 87, 34, 0.8);
+    }
+    100% {
+        text-shadow: 6px 6px 25px rgba(255, 193, 7, 1), 
+                     3px 3px 15px rgba(0, 0, 0, 0.8);
+        border-color: rgba(255, 193, 7, 1);
+    }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-description {
-        font-size: 1.2rem;
+    .hero-subtext {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        padding: 6px 18px;
+        margin-top: 20px; /* Adjusted for mobile */
     }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
+    .hero-subtext {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        padding: 5px 15px;
+        margin-top: 15px; /* Adjusted for smaller screens */
     }
 }
+
 
 
 
@@ -1267,7 +1312,7 @@ p, a {
    .hero-section {
     position: relative;
     width: 100%;
-    height: 50vh; /* Adjust height as needed */
+    height: 90vh; /* Adjust height as needed */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1433,11 +1478,11 @@ p, a {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.3rem; /* Adjusted for smaller screens */
+        font-size: 2.6rem; /* Adjusted for smaller screens */
     }
 
     .hero-section p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .branch h3 {
