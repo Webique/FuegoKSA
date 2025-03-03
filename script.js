@@ -217,3 +217,15 @@ lightbox.addEventListener('click', (e) => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const viewEventsButton = document.querySelector(".view-events-button");
+    const eventsContainer = document.querySelector(".events-container");
+
+    if (viewEventsButton && eventsContainer) {
+        viewEventsButton.addEventListener("click", function () {
+            eventsContainer.classList.toggle("active");
+        });
+    }
+});
+
