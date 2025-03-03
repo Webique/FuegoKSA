@@ -434,7 +434,6 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
 
 /* Hero Title */
 .hero-title {
-    font-family: 'Anton', sans-serif; /* Bold, strong, impactful font */
     font-size: 3.8rem; /* Large size for presence */
     font-weight: 700; /* Extra bold */
     color: #ffffff;
@@ -446,7 +445,6 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
 
 /* Hero Description */
 .hero-description {
-    font-family: 'Montserrat', sans-serif; /* Modern, clean, and minimalistic */
     font-size: 1.5rem;
     font-weight: 600;
     color: #ffffff;
@@ -458,7 +456,6 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
 
 /* Hero Subtext - Fire Theme */
 .hero-subtext {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -1811,7 +1808,7 @@ p, a {
    Contributions & Events Section Styling
 =========================================================== */
 .contributions-section {
-    padding: 60px 20px;
+    padding: 80px 20px;
     background-color: #f9f9f9;
     text-align: center;
     color: #333;
@@ -1828,234 +1825,89 @@ p, a {
 .contributions-section .section-description {
     font-size: 1.4rem;
     color: #555;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-.event-review {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    margin-bottom: 40px;
-}
-
-.event-review h3 {
-    font-size: 2rem;
-    color: #ff6b6b;
-    margin-bottom: 15px;
-}
-
-.event-review .event-message {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-.event-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #ffc107;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.event-link:hover {
-    color: #e69a2a;
-}
-
-/* Event Gallery */
-.contributions-gallery h3 {
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-}
-
-.contributions-gallery .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 15px;
-    justify-content: center;
+/* Event Container */
+.events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.contributions-gallery .gallery-item {
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 200px;
+/* Individual Event */
+.event-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contributions-gallery .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease-in-out;
+    align-items: stretch;
+    background-color: #fff;
     border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    height: 300px; /* Set a fixed height for consistency */
 }
 
-.contributions-gallery .gallery-item img:hover {
-    transform: scale(1.05);
+.event-item:hover {
+    transform: scale(1.02);
+}
+
+/* Image Styling (Fixed Height for Consistency) */
+.event-item img {
+    width: 40%;
+    height: 100%; /* Forces all images to be the same height */
+    object-fit: cover;
+}
+
+/* Event Content */
+.event-content {
+    padding: 20px;
+    text-align: left;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-content h3 {
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.event-content p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .contributions-gallery .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    .event-item {
+        flex-direction: column;
+        align-items: center;
+        height: auto; /* Adjusts for stacking on smaller screens */
     }
 
-    .contributions-gallery .gallery-item {
-        height: 180px;
+    .event-item img {
+        width: 100%;
+        height: 250px;
     }
 
-    .event-review .event-message {
-        font-size: 1.1rem;
+    .event-content {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .contributions-gallery .gallery-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+    .event-content h3 {
+        font-size: 1.5rem;
     }
 
-    .contributions-gallery .gallery-item {
-        height: 160px;
-    }
-
-    .event-review h3 {
-        font-size: 1.8rem;
-    }
-
-    .event-review .event-message {
+    .event-content p {
         font-size: 1rem;
     }
-}
-
-/* Responsive Title Size for Smaller Screens */
-@media (max-width: 768px) {
-    .contributions-section .section-title {
-        font-size: 2.5rem; /* Slightly smaller for tablets */
-    }
-}
-
-@media (max-width: 480px) {
-    .contributions-section .section-title {
-        font-size: 2rem; /* 2rem for mobile devices */
-    }
-}
-
-/* View Highlights Button - Default Hidden */
-.view-highlights-button {
-    display: none; /* Hidden by default (Desktop) */
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    background-color: #ffc107;
-    color: #1a1a1a;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto;
-    text-align: center;
-}
-
-/* Hover Effect */
-.view-highlights-button:hover {
-    background-color: #e6a500;
-    transform: scale(1.05);
-}
-
-/* Contributions Gallery - Default Shown */
-.contributions-gallery .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Responsive: Hide Gallery and Show Button */
-@media (max-width: 768px) {
-    .view-highlights-button {
-        display: block; /* Show button on responsive */
-    }
-
-    /* Hide Gallery by Default */
-    .contributions-gallery .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 900px;
-        margin: 0 auto;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition: max-height 0.6s ease, opacity 0.6s ease;
-    }
-
-    /* Show Gallery When Active */
-    .contributions-gallery .gallery-grid.active {
-        max-height: 1000px; /* Set a large enough value to reveal content */
-        opacity: 1;
-    }
-}
-
-@media (max-width: 480px) {
-    .contributions-gallery .gallery-grid {
-        grid-template-columns: 1fr; /* Single column for mobile */
-    }
-
-    .contributions-gallery .gallery-grid.active {
-        max-height: 3000px; /* More space for 6 images */
-    }
-}
-
-/* Lightbox Default Hidden */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* Show Lightbox when .show class is added */
-.lightbox.show {
-    display: flex;
-}
-
-/* Lightbox Content */
-.lightbox-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-/* Close Button */
-.close-lightbox {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-.lightbox-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
 }
