@@ -591,72 +591,43 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
     color: #333;
 }
 
+.language-toggle {
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .language-toggle {
+        position: absolute;
+        left: 40px; /* Keep consistent alignment on phones */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (min-width: 769px) {
+    .language-toggle {
+        position: relative;
+        margin-left: auto; /* Push to the right on desktop */
+        margin-right: 20px; /* Add space from the edge */
+    }
+}
+
 .language-button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px 20px; /* Reduced padding for smaller screens */
-    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-    color: white;
-    border: none;
-    border-radius: 25px; /* Fully rounded buttons */
-    font-size: 1rem; /* Smaller font */
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.language-button:hover {
-    background: linear-gradient(135deg, #ff8e53, #ff6b6b); /* Reverse gradient on hover */
-    transform: scale(1.05); /* Slight scaling for hover */
-}
-
-.close-button {
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px 15px; /* Reduced padding for smaller screens */
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 20px; /* Rounded cancel button */
-    font-size: 0.9rem; /* Slightly smaller font size */
-    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.close-button:hover {
-    background-color: #555;
-    transform: scale(1.05); /* Subtle hover effect */
-}
-
-/* Popup Open Animation */
-@keyframes scaleIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Mobile-Specific Adjustments */
-@media (max-width: 768px) {
-    .popup-content {
-        padding: 15px 20px; /* Reduced padding */
-        max-width: 280px; /* Smaller width for smaller screens */
-    }
-
-    .language-button {
-        padding: 10px 15px; /* Adjusted padding for mobile */
-        font-size: 0.9rem; /* Smaller font size */
-    }
-
-    .close-button {
-        padding: 8px 12px; /* Smaller close button */
-        font-size: 0.8rem; /* Reduced font size */
-    }
+.language-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
 }
 
 
@@ -1970,3 +1941,44 @@ p, a {
 }
 
 
+/* Force dropdown to open instantly */
+.nav-links {
+    display: none; /* Start hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1a1a1a;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    opacity: 1;
+    transform: translateY(0) !important;
+    transition: none !important; /* Disable all transitions */
+}
+
+/* When active, display instantly */
+.nav-links.active {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: none !important;
+}
+
+/* Hamburger Icon Animation */
+.hamburger {
+    transition: none !important;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px) !important;
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0 !important;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px) !important;
+}
