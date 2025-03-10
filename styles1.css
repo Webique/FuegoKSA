@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap');
+
 /* Ensure the status bar is dark grey */
 meta[name="theme-color"] {
     content: #1a1a1a; /* Dark grey color */
@@ -70,24 +71,27 @@ body {
 
 /* Global Base Styles */
 body, html {
-    font-family: 'Baloo Bhaina 2', cursive;
-    background-color: #ffffff; /* Set background to white */
-    color: #1a1a1a; /* Set text to dark grey for readability */
+    font-family: 'Tajawal', sans-serif;
+    background-color: #ffffff; /* خلفية بيضاء */
+    color: #1a1a1a; /* لون النص رمادي غامق للوضوح */
     line-height: 1.6;
     overflow-x: hidden;
+    direction: rtl; /* لضبط النص إلى اليمين */
+    text-align: right; /* لمحاذاة النص إلى اليمين */
 }
+
 
 
 /* Universal Element Styling */
 h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
-    font-family: 'Baloo Bhaina 2', cursive;
+    font-family: 'Tajawal', sans-serif;
     color: #ffffff;
 }
 /* ===========================================================
    Navbar Styling
 =========================================================== */
 .main-header {
-    font-family: 'Baloo Bhaina 2', cursive;
+    
     background-color: #1a1a1a; /* Black-greyish color */
     position: fixed;
     top: 0;
@@ -139,7 +143,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
 }
 
 .nav-links a {
-    font-family: 'Baloo Bhaina 2', cursive;
+    
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 600;
@@ -192,7 +196,7 @@ h1, h2, h3, h4, h5, h6, p, a, button, input, textarea {
     .hamburger {
         display: flex;
         position: absolute;
-        right: 20px;
+        left: 20px;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -1965,20 +1969,4 @@ p, a {
     margin-right: 5px;
 }
 
-.footer {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-.footer-bottom {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Force the body to remove any unwanted bottom spacing */
-body {
-    overflow-x: hidden;
-    margin: 0 !important;
-    padding: 0 !important;
-}
 

@@ -109,17 +109,7 @@ document.addEventListener('click', (e) => {
         });
     });
 
-// --- Lightbox Feature for Gallery ---
-const galleryItems = document.querySelectorAll('.gallery-item img');
-const lightbox = document.createElement('div');
-lightbox.className = 'lightbox';
-lightbox.innerHTML = `
-    <div class="lightbox-content">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-img" src="" alt="">
-    </div>
-`;
-document.body.appendChild(lightbox);
+
 
 const lightboxImg = lightbox.querySelector('.lightbox-img');
 const closeLightbox = lightbox.querySelector('.close-lightbox');
@@ -225,6 +215,26 @@ document.addEventListener("DOMContentLoaded", function () {
     if (viewEventsButton && eventsContainer) {
         viewEventsButton.addEventListener("click", function () {
             eventsContainer.classList.toggle("active");
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const languageSwitcher = document.getElementById('languageSwitcher');
+
+    if (languageSwitcher) {
+        languageSwitcher.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior (if needed)
+            window.location.href = "index1.html"; // Redirect manually
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const englishSwitcher = document.getElementById('englishSwitcher');
+
+    if (englishSwitcher) {
+        englishSwitcher.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            window.location.href = "index.html"; // Redirect to English version
         });
     }
 });
