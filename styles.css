@@ -1995,3 +1995,40 @@ body {
     padding: 0 !important;
 }
 
+.gallery-toggle-button {
+    display: none; /* Hidden by default */
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ffc107; /* Yellow Button */
+    color: #1a1a1a; /* Dark text for contrast */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+.gallery-toggle-button:hover {
+    background-color: #e6a500; /* Darker yellow for hover */
+    transform: scale(1.05);
+}
+
+/* Make it appear only on phones */
+@media only screen and (max-width: 768px) {
+    .gallery-toggle-button {
+        display: inline-block;
+    }
+}
+.gallery-grid {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.gallery-grid.active {
+    opacity: 1;
+    height: auto;
+}

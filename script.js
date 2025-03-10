@@ -239,3 +239,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
+
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.gallery-toggle-button');
+    const galleryGrid = document.querySelector('.gallery-grid');
+
+    if (toggleButton && galleryGrid) {
+        // Check if the file is "index1.html" (Arabic)
+        const isArabic = window.location.href.includes('index1.html');
+
+        toggleButton.addEventListener('click', () => {
+            galleryGrid.classList.toggle('active');
+            
+            if (isArabic) {
+                // Arabic Text
+                toggleButton.textContent = galleryGrid.classList.contains('active') 
+                    ? 'إخفاء المعرض' 
+                    : 'عرض المعرض';
+            } else {
+                // English Text
+                toggleButton.textContent = galleryGrid.classList.contains('active') 
+                    ? 'Hide Gallery' 
+                    : 'View Gallery';
+            }
+        });
+
+        // Set default button text based on language
+        toggleButton.textContent = isArabic ? 'عرض المعرض' : 'View Gallery';
+    }
+});
+
+
+
