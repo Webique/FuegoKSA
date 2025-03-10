@@ -53,10 +53,13 @@
 
 <!-- قسم المقدمة -->
 <section class="hero-section">
-    <video class="background-video" autoplay muted loop playsinline>
+    <video class="background-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/backgroundvid-low.webm" media="(max-width: 768px)" type="video/webm">
+        <source src="assets/backgroundvid-low.mp4" media="(max-width: 768px)" type="video/mp4">
+        <source src="assets/backgroundvid.webm" type="video/webm">
         <source src="assets/backgroundvid.mp4" type="video/mp4">
-        متصفحك لا يدعم تشغيل الفيديو.
     </video>
+    
 
     <!-- محتوى المقدمة -->
     <div class="content">
