@@ -147,17 +147,38 @@ lightbox.addEventListener('click', (e) => {
     }
 });
 
+// --- Gallery Toggle ---
+const galleryToggleButton = document.querySelector('.gallery-toggle-button');
+const galleryGrid = document.querySelector('.gallery-grid');
 
-    // --- Gallery Toggle ---
-    const galleryToggleButton = document.querySelector('.gallery-toggle-button');
-    const galleryGrid = document.querySelector('.gallery-grid');
+// Check the file name to determine the language
+const isArabic = window.location.pathname.includes('index1.html');
 
-    if (galleryToggleButton && galleryGrid) {
-        galleryToggleButton.addEventListener('click', () => {
-            galleryGrid.classList.toggle('active');
-            galleryToggleButton.textContent = galleryGrid.classList.contains('active') ? "Hide Gallery" : "View Gallery";
-        });
+if (galleryToggleButton && galleryGrid) {
+    galleryToggleButton.addEventListener('click', () => {
+        galleryGrid.classList.toggle('active');
+
+        if (isArabic) {
+            // Arabic text
+            galleryToggleButton.textContent = galleryGrid.classList.contains('active') 
+                ? "إخفاء المعرض" // Hide Gallery in Arabic
+                : "عرض المعرض"; // View Gallery in Arabic
+        } else {
+            // English text
+            galleryToggleButton.textContent = galleryGrid.classList.contains('active') 
+                ? "Hide Gallery" 
+                : "View Gallery";
+        }
+    });
+
+    // Set the initial button text correctly on load
+    if (isArabic) {
+        galleryToggleButton.textContent = "عرض المعرض";
+    } else {
+        galleryToggleButton.textContent = "View Gallery";
     }
+}
+
 
     // --- View Highlights Button Toggle ---
     const highlightsButton = document.querySelector('.view-highlights-button');
