@@ -110,6 +110,17 @@ document.addEventListener('click', (e) => {
     });
 
 
+// --- Lightbox Feature for Gallery ---
+const galleryItems = document.querySelectorAll('.gallery-item img');
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = `
+    <div class="lightbox-content">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-img" src="" alt="">
+    </div>
+`;
+document.body.appendChild(lightbox);
 
 const lightboxImg = lightbox.querySelector('.lightbox-img');
 const closeLightbox = lightbox.querySelector('.close-lightbox');
